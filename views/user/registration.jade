@@ -1,0 +1,29 @@
+extends ../template.jade
+
+block title
+  title Înregistrare
+
+block content
+  form.form.form-horizontal(action="create", method="POST")
+    .form-group
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="email") Email
+      .col-xs-12.col-sm-12.col-md-4.col-lg-4
+        input.form-control.input-sm(type="email", name="email", required)
+
+    .form-group
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="password") Password
+      .col-xs-12.col-sm-12.col-md-4.col-lg-4
+        input.form-control.input-sm(type="password", name="password", required)
+    
+    .form-group
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="confirmation") Password confirmation
+      .col-xs-12.col-sm-12.col-md-4.col-lg-4
+        input.form-control.input-sm(type="password", name="confirmation", required)
+    
+    .form-group
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="phone") Phone number
+      .col-xs-12.col-sm-12.col-md-4.col-lg-4
+        input.form-control.input-sm(type="tel", name="phone", required)
+    
+    .form-group.text-center
+      input.btn.btn-primary(type="submit", value="Register")
