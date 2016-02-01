@@ -1,4 +1,4 @@
-/**
+/*
  * Route Mappings
  * (sails.config.routes)
  *
@@ -34,7 +34,7 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +45,18 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+  // ad routes
+  '/newad': {
+    view: 'ad/newad'
+  },
 
-};
+  // user routes
+  '/user/profile/:id': 'User.profile',
+
+  '/user/login': {
+    view: 'user/login'
+  },
+
+  // session routes
+  '/session/create': 'redirectMe'
+}

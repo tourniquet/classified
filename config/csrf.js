@@ -1,4 +1,4 @@
-/**
+/*
  * Cross-Site Request Forgery Protection Settings
  * (sails.config.csrf)
  *
@@ -48,7 +48,7 @@
 *                                                                           *
 ****************************************************************************/
 
-// module.exports.csrf = false;
+module.exports.csrf = true
 
 /****************************************************************************
 *                                                                           *
