@@ -3,5 +3,10 @@ extends ../template.jade
 block title
   title Înregistrare
   
+  
+block content
   h1 #{ user.email }
-  h2 #{ user.id }
+  
+  each userad in user
+    h3 #{ userad }
+  //- h3 #{ user.ads }
