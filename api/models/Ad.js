@@ -7,6 +7,11 @@
 
 module.exports = {
   attributes: {
+    url: {
+      type: 'integer',
+      autoIncrement: true
+    },
+
     user: {
       model: 'user'
     },

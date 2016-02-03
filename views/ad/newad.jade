@@ -4,7 +4,7 @@ block title
   title Intră
 
 block content
-  form.form.form-horizontal(action="ad/create", method="POST")
+  form.form.form-horizontal(action="/ad/create", method="POST")
     .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="title") Title
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
@@ -16,9 +16,6 @@ block content
         input.form-control.input-sm(type="text", name="description")
                 
     input(type="hidden", name="_csrf", value="#{ _csrf }")
-    
-    if req.session.authenticated
-      input(type="hidden", name="user", value="#{ session.User.id }")
     
     .form-group.text-center
       input.btn.btn-primary(type="submit", value="Sign in")

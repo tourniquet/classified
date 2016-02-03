@@ -7,6 +7,5 @@ block title
 block content
   h1 #{ user.email }
   
-  each userad in user
-    h3 #{ userad }
-  //- h3 #{ user.ads }
+  each ad in user.ads
+    h3 #{ ad.title }

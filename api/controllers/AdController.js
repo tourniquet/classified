@@ -6,13 +6,28 @@
  */
 
 module.exports = {
-  // newad: function (req, res) {
-  //   if (req.session.authenticated) {
-  //     User.findOne({ id: req.param('id') }).exec(function (err, user) {
-  //       req.view('user/newad', {
-  //         user: user
-  //       })
-  //     }
-  //   }
-  // }
+  index: function (req, res) {
+    Ad.find().exec(function (err, ad) {
+      if (err) console.log(err)
+
+      res.view('ad/index', {
+        ads: ad
+      })
+    })
+  },
+
+  create: function (req, res) {
+    // if (req.session.authenticated) {
+    //   user = req.session.User.id
+    // }
+
+    Ad.create({
+      title: req.param('title'),
+      description: req.param('description')
+    }).exec(function (err) {
+      if (err) console.log(err)
+
+      res.redirect('/')
+    })
+  }
 }

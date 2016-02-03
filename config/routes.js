@@ -32,9 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  },
+  '/': 'Ad.index',
 
   /***************************************************************************
   *                                                                          *
@@ -56,6 +54,9 @@ module.exports.routes = {
   '/user/login': {
     view: 'user/login'
   },
+
+
+  '/logout': 'Session.destroy',
 
   // session routes
   '/session/create': 'redirectMe'
