@@ -21,7 +21,6 @@ module.exports = {
           res.view('user/profile', {
             user: user
           })
-          // res.redirect('/user/profile' + user.id)
         } else if (err) {
           res.view('user/registration')
         }

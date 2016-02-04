@@ -8,8 +8,7 @@
 module.exports = {
   attributes: {
     url: {
-      type: 'integer',
-      autoIncrement: true
+      type: 'integer'
     },
 
     user: {
@@ -17,7 +16,7 @@ module.exports = {
     },
 
     subcategory: {
-
+      model: 'subcategory'
     },
 
     title: {

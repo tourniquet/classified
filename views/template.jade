@@ -64,7 +64,7 @@ html
             if session.authenticated
               //- user profile
               li: a(href="/user/favorites") Favorite
-              //- li: a(href="/user/profile/#{ user.id }") Profil
+              li: a(href="/user/profile/#{ user.id }") Profil
               li: a(href="/logout") Ieșire
             else if !session.authenticated
               li: a(href="/user/login") Intrare

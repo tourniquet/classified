@@ -13,7 +13,12 @@ module.exports = {
     },
 
     category: {
-      
-    }
+
+    },
+
+    ads: {
+      collection: 'ad',
+      via: 'subcategory'
+    },
   }
 }

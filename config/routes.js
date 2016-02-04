@@ -31,7 +31,6 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-
   '/': 'Ad.index',
 
   /***************************************************************************
@@ -44,9 +43,10 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   // ad routes
-  '/newad': {
-    view: 'ad/newad'
-  },
+  // show ad route`
+  'r|^/(\\d{8})$|id': 'Ad.showad',
+  
+  '/newad': 'Ad.newad',
 
   // user routes
   '/user/profile/:id': 'User.profile',
