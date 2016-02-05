@@ -1,4 +1,4 @@
-/**
+/*
  * CategoryController
  *
  * @description :: Server-side logic for managing categories
@@ -6,6 +6,5 @@
  */
 
 module.exports = {
-	
-};
 
+}

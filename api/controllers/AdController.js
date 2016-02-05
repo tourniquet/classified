@@ -7,7 +7,9 @@
 module.exports = {
   index: function (req, res) {
     Ad.find().exec(function (err, ad) {
-      if (err) console.log(err)
+      if (err) {
+        return res.serverError(err)
+      }
 
       res.view('ad/index', {
         ads: ad,
@@ -39,7 +41,9 @@ module.exports = {
       user: user,
       subcategory: '56b34eee160553640c262eec'
     }).exec(function (err) {
-      if (err) console.log(err)
+      if (err) {
+        return res.serverError(err)
+      }
 
       res.redirect('/')
     })
@@ -55,7 +59,6 @@ module.exports = {
         ad: ad,
         user: req.session.User
       })
-      // res.json(ad)
     })
   }
 }

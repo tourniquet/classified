@@ -28,10 +28,6 @@ module.exports = {
     })
   },
 
-  redirectMe: function (req, res) {
-    res.view('/user')
-  },
-
   destroy: function (req, res, next) {
     req.session.destroy()
 

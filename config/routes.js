@@ -31,7 +31,6 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-  '/': 'Ad.index',
 
   /***************************************************************************
   *                                                                          *
@@ -43,21 +42,24 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   // ad routes
-  // show ad route`
+  // index page
+  '/': 'Ad.index',
+  // show ad page`
   'r|^/(\\d{8})$|id': 'Ad.showad',
-  
+  // new ad
   '/newad': 'Ad.newad',
 
   // user routes
+  // user profile page
   '/user/profile/:id': 'User.profile',
-
+  // user login page
   '/user/login': {
     view: 'user/login'
   },
 
-
-  '/logout': 'Session.destroy',
-
   // session routes
-  '/session/create': 'redirectMe'
+  // create user session
+  '/session/create': 'Session.create',
+  // destroy user session
+  '/logout': 'Session.destroy'
 }
