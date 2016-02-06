@@ -1,4 +1,4 @@
-/**
+/*
  * SubcategoryController
  *
  * @description :: Server-side logic for managing subcategories
@@ -6,6 +6,5 @@
  */
 
 module.exports = {
-	
-};
 
+}

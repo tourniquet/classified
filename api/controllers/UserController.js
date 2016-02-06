@@ -12,10 +12,11 @@ module.exports = {
 
   profile: function (req, res) {
     User.findOne({ id: req.param('id') }).populate('ads').exec(function (err, user) {
-      if (err) console.log(err)
-      if (!user) res.view(404)
+      if (err) {
+        return res.serverError(err)
+      }
 
-      console.log(user)
+      if (!user) res.view(404)
 
       res.view('user/profile', {
         user: user

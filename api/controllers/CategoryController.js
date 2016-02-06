@@ -6,5 +6,16 @@
  */
 
 module.exports = {
-
+  index (req, res) {
+    DbService
+      .multiple(Subcategory.find(), Ad.find())
+      .then(function (data) {
+        res.view('category', {
+          subcategories: data[0],
+          ads: data[1]
+        })
+      }, function (err) {
+        res.serverError(err)
+      })
+  }
 }

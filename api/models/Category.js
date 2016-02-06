@@ -13,7 +13,8 @@ module.exports = {
     },
 
     subcategories: {
-      
+      collection: 'subcategory',
+      via: 'category'
     }
   }
 }

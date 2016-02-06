@@ -5,26 +5,29 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 module.exports = {
-  index: function (req, res) {
-    Ad.find().exec(function (err, ad) {
-      if (err) {
-        return res.serverError(err)
-      }
+  index (req, res) {
+    'use strict'
 
-      res.view('ad/index', {
-        ads: ad,
-        user: req.session.User
+    DbService
+      .multiple(Category.find(), Ad.find())
+      .then(function (a) {
+        res.view('ad/index', {
+          categories: a[0],
+          ads: a[1],
+          user: req.session.User
+        })
+      }, function (err) {
+        res.serverError(err)
       })
-    })
   },
 
-  newad: function (req, res) {
+  newad (req, res) {
     res.view('ad/newad', {
       user: req.session.User
     })
   },
 
-  create: function (req, res) {
+  create (req, res) {
     var url = new Date().getTime().toString().slice(5)
     var user;
 
@@ -49,14 +52,14 @@ module.exports = {
     })
   },
 
-  showad: function (req, res) {
+  showad (req, res) {
     Ad.findOne({ url: req.param('id') }).populate('subcategory').exec(function (err, ad) {
       if (err) {
         return res.serverError(err)
       }
 
       res.view('ad/showad', {
-        ad: ad,
+        ad,
         user: req.session.User
       })
     })

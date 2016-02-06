@@ -1,0 +1,97 @@
+extends ../template.jade
+
+block title
+  title #{ ad.title }
+
+block content
+  .row
+    #category.col-xs-12.col-sm-12.col-md-12.col-md-12
+      ol.breadcrumb
+        li
+          a(href='/') Acasă
+        //- li
+          //- a(href='/category/#{ ad.category }')
+            //- span#show-category #{ ad.category }
+        li
+          //- a(href='/#{ ad.category }/#{ ad.subcategory.title }')
+          a(href='/#{ ad.subcategory.title }')
+            span#show-sub-category #{ ad.subcategory.title }
+        li.active
+          | #{ ad.title }
+
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-md-12
+      h1#ad-title #{ ad.title }
+
+  .row
+    .col-xs-12.col-sm-12.col-md-3.col-lg-3.text-muted #{ ad.date }
+    .col-xs-12.col-sm-12.col-md-3.col-lg-3.text-muted Vizualizări: #{ ad.views }
+    #ok_shareWidget.col-xs-12.col-sm-12.col-md-3.col-lg-3.text-muted
+
+  //- .row(style="margin-top: 25px;")
+    if ad.imagesPath[0]
+      .col-xs-12.col-sm-6.col-md-3.col-lg-2
+        a(href="uploads/#{ ad.imagesPath[0] }", data-lightbox="#{ ad.title }")
+          img.img-thumbnail(src="uploads/thumb_#{ ad.imagesPath[0] }", alt="#{ ad.title }")
+    else
+      .col-xs-12.col-sm-6.col-md-3.col-lg-2
+        img.img-thumbnail(src="img/noimage.png", alt="No image")
+
+    if ad.imagesPath[1]
+      .col-xs-12.col-sm-6.col-md-3.col-lg-2
+        a(href="uploads/#{ ad.imagesPath[1] }", data-lightbox="#{ ad.title }")
+          img.img-thumbnail(src="uploads/thumb_#{ ad.imagesPath[1] }", alt="#{ ad.title }")
+
+    if ad.imagesPath[2]
+      .col-xs-12.col-sm-6.col-md-3.col-lg-2
+        a(href="uploads/#{ ad.imagesPath[2] }", data-lightbox="#{ ad.title }")
+          img.img-thumbnail(src="uploads/thumb_#{ ad.imagesPath[2] }", alt="#{ ad.title }")
+
+  .row
+    pre.col-xs-12.col-sm-12.col-md-12.col-lg-12 #{ ad.adDescription }
+
+  .row
+    #price.col-xs-12.col-sm-12.col-md-12.col-md-12
+      span#price-label preţ:
+      |	#{ ad.price }
+      span.converted
+      span.converted
+
+
+  .row
+    #phone.col-xs-12.col-sm-12.col-md-12.col-md-12
+      span#phone-label contacte:
+      |	#{ ad.phone }, #{ ad.contactName }
+
+  .row
+    #useful-info.col-xs-12.col-sm-12.col-md-12.col-md-12
+      h4 Informaţie utilă
+      ul
+        li Evitaţi escrocheriile şi plătiţi direct.
+        li Niciodată nu plătiţi prin Western Union, Moneygram sau alte servicii anonime de plată.
+        li Nu transferaţi bani persoanelor necunoscute.
+        li Acest site nu este implicat în nici o tranzacţie şi nici nu controlează plăţile, transportul, garanţia tranzacţiilor, nu oferă protecţia cumpărătorului şi nici certificarea vânzătorului.
+
+block scripts
+  //- xml to json
+  script(src="js/convertor.js")
+
+  //- show category and subcategory
+  script(src="js/showCategoryAndSubCategory.js")
+
+  script(type="text/javascript").
+    !function(d, id, did, st) {
+      var js = d.createElement("script");
+      js.src = "https://connect.ok.ru/connect.js";
+      js.onload = js.onreadystatechange = function() {
+        if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
+          if (!this.executed) {
+            this.executed = true;
+            setTimeout(function() {
+              OK.CONNECT.insertShareWidget(id, did, st);
+              }, 0);
+            }
+          }
+        };
+        d.documentElement.appendChild(js);
+        }(document, "ok_shareWidget", document.URL, "{width:190,height:30,st:'rounded',sz:20,ck:2}");

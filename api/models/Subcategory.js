@@ -13,7 +13,7 @@ module.exports = {
     },
 
     category: {
-
+      model: 'category'
     },
 
     ads: {

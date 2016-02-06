@@ -50,12 +50,19 @@ module.exports.routes = {
   '/newad': 'Ad.newad',
 
   // user routes
-  // user profile page
-  '/user/profile/:id': 'User.profile',
+  // user registration
+  '/user/registration': {
+    view: 'user/registration'
+  },
   // user login page
   '/user/login': {
     view: 'user/login'
   },
+  // user profile page
+  '/user/profile/:id': 'User.profile',
+
+  // category routes
+  '/categorie/:category': 'Category.index',
 
   // session routes
   // create user session
