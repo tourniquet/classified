@@ -6,9 +6,16 @@ block title
 block content
   form.form.form-horizontal(action="/ad/create", method="POST")
     .form-group
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="subcategory") Subcategorie
+        .col-xs-12.col-sm-12.col-md-4.col-lg-4
+          
+    
+    .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="title") titlu
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
-        input.form-control.input-sm(type="text", name="title")
+        select.form-control.input-sm(name="subcategory")
+          each subcategory in subcategories
+            option(value="#{ subcategory.id }") #{ subcategory.title }
 
     .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="description") descriere

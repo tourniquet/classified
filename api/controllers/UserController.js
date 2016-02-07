@@ -6,11 +6,11 @@
  */
 
 module.exports = {
-	registration: function (req, res) {
+	registration (req, res) {
     res.view('user/registration')
   },
 
-  profile: function (req, res) {
+  profile (req, res) {
     User.findOne({ id: req.param('id') }).populate('ads').exec(function (err, user) {
       if (err) {
         return res.serverError(err)

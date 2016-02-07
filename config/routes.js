@@ -49,6 +49,8 @@ module.exports.routes = {
   // new ad
   '/newad': 'Ad.newad',
 
+  '/newad2': 'Ad.newad2',
+
   // user routes
   // user registration
   '/user/registration': {
@@ -62,7 +64,7 @@ module.exports.routes = {
   '/user/profile/:id': 'User.profile',
 
   // category routes
-  '/categorie/:category': 'Category.index',
+  '/categorie/:category': 'Category.subcategory',
 
   // session routes
   // create user session

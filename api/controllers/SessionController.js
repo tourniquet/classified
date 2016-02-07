@@ -7,7 +7,7 @@
 var bcrypt = require('bcrypt')
 
 module.exports = {
-  create: function (req, res) {
+  create (req, res) {
     if (!req.param('email') || !req.param('password')) {
       res.redirect('/user/login')
     }
@@ -18,19 +18,17 @@ module.exports = {
           req.session.authenticated = true
           req.session.User = user
 
-          res.view('user/profile', {
-            user: user
-          })
+          res.redirect('/')
         } else if (err) {
-          res.view('user/registration')
+          res.redirect('/user/login')
         }
       })
     })
   },
 
-  destroy: function (req, res, next) {
+  destroy (req, res, next) {
     req.session.destroy()
 
-    res.redirect('/user/login')
+    res.redirect('/')
   }
 }

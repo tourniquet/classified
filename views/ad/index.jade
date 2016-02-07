@@ -6,19 +6,9 @@ block title
 block content
   .row
     ul#menu-list.hidden-xs
-      //- li: a(href="/category/realEstate") Imobiliare
-      //- li: a(href="/category/transport") Transport
-      //- li: a(href="/category/repairs") Construcţii şi reparaţii
-      //- li: a(href="/category/furniture") Mobilă şi interior
-      //- li: a(href="/category/household") Tehnică de uz casnic
-      //- li: a(href="/category/jobs") Oferte de lucru
-      //- li: a(href="/category/computers") Calculatoare şi periferice
-      //- li: a(href="/category/phones") Telefoane
-      //- li: a(href="/category/clothingfootwear") Haine şi încălţăminte
-      //- li: a(href="/category/services") Servicii
       //- li: a(href="/category/other") Altele
       each category in categories
-        li: a(href="#") #{ category.title }
+        li: a(href="/category/#{ category.title }") #{ category.title }
       li: p
       li: a(href="/newad"): span.btn.btn-danger.btn-sm Postează anunţ
 

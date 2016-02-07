@@ -1,6 +1,7 @@
 module.exports = {
   multiple () {
     'use strict'
+
     return new Promise((resolve, reject) => {
       var returned = false
       var l = arguments.length

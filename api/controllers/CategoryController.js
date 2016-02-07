@@ -17,5 +17,16 @@ module.exports = {
       }, function (err) {
         res.serverError(err)
       })
+  },
+
+  subcategory (req, res) {
+    DbService
+      .multiple(Category.findOne({ title: req.param('category') }).populate('subcategories'), Ad.find())
+      .then(function (data) {
+        res.view('subcategory', {
+          subcategories: data[0].subcategories,
+          ads: data[1]
+        })
+      })
   }
 }
