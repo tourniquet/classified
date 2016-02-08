@@ -70,5 +70,6 @@ module.exports.routes = {
   // create user session
   '/session/create': 'Session.create',
   // destroy user session
-  '/logout': 'Session.destroy'
+  '/logout': 'Session.destroy',
+  '/session/check': 'Session.check'
 }

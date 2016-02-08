@@ -12,16 +12,18 @@ block content
         //- li
           //- a(href='/category/#{ ad.category }')
             //- span#show-category #{ ad.category }
-        li
-          //- a(href='/#{ ad.category }/#{ ad.subcategory.title }')
-          a(href='/#{ ad.subcategory.title }')
-            span#show-sub-category #{ ad.subcategory.title }
+        //- li
+        //-   a(href='/category/#{ category.title }')
+        //-     span#show-category #{ category.title }
+        //- li
+        //-   a(href='/#{ category.title }/#{ ad.subcategory.title }')
+        //-     span#show-sub-category #{ ad.subcategory.title }
         li.active
-          | #{ ad.title }
+          | {{ ad.title }}
 
   .row
     .col-xs-12.col-sm-12.col-md-12.col-md-12
-      h1#ad-title #{ ad.title }
+      h1#ad-title {{ ad.title }}
 
   .row
     .col-xs-12.col-sm-12.col-md-3.col-lg-3.text-muted #{ ad.date }

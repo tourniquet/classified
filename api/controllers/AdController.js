@@ -30,7 +30,7 @@ module.exports = {
     })
   },
 
-  'newad2' (req, res) {
+  newad2 (req, res) {
     var category = req.param('category')
 
     Subcategory.find({ category: category }).exec(function (err, subcategories) {
@@ -56,7 +56,7 @@ module.exports = {
       title: req.param('title'),
       description: req.param('description'),
       user: user,
-      subcategory: '56b34eee160553640c262eec'
+      subcategory: req.param('subcategory')
     }).exec(function (err) {
       if (err) {
         return res.serverError(err)
@@ -72,8 +72,23 @@ module.exports = {
         return res.serverError(err)
       }
 
+      // Category.findOne(ad.subcategory.category).populate('subcategories').exec(function (err, category) {
+      //   if (err) {
+      //     return res.serverError(err)
+      //   }
+      //
+      //   res.view('ad/showad', {
+      //     ad,
+      //     category,
+      //     user: req.session.User
+      //   })
+      // })
+
+      console.log(ad)
+      
       res.view('ad/showad', {
         ad,
+        // category,
         user: req.session.User
       })
     })

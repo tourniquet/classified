@@ -7,6 +7,15 @@
 var bcrypt = require('bcrypt')
 
 module.exports = {
+  check (req, res) {
+    if (req.session.authenticated) {
+
+      return res.json(req.session.User)
+    } else {
+      res.json({id: ''})
+    }
+  },
+
   create (req, res) {
     if (!req.param('email') || !req.param('password')) {
       res.redirect('/user/login')

@@ -58,16 +58,18 @@ html
 
 
         #user-navbar.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
+          ul.nav.navbar-nav.navbar-right(v-if="user.id")
             //- li: a(href="#") Link
             //- user login / logout
-            if session.authenticated
-              //- user profile
-              li: a(href="/user/favorites") Favorite
-              li: a(href="/user/profile/#{ user.id }") Profil
-              li: a(href="/logout") Ieșire
-            else if !session.authenticated
-              li: a(href="/user/login") Intrare
+            //- if session.authenticated
+            
+            //- user profile
+            li: a(href="/user/favorites") Favorite
+            li: a(href="/user/profile/{{ user.id }}") Profil
+            li: a(href="/logout") Ieșire
+          ul.nav.navbar-nav.navbar-right(v-else)
+            li: a(href="/user/registration") Înregistrare
+            li: a(href="/user/login") Intrare
 
 
     .container
@@ -110,7 +112,14 @@ html
           2014 - 2016 | ver 0.16.1
 
     //- all js libs bundle
+    // SCRIPTS
+    script(src="/js/dependencies/sails.io.js")
     script(src="/js/dependencies/libs.min.js")
+    script(src="/js/dependencies/request.js")
+    script(src="/js/dependencies/vue.js")
+    script(src="/js/index.js")
+    script(src="/js/showad.js")
+    // SCRIPTS END
 
     //script.
       $(function(){
