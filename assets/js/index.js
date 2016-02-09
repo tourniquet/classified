@@ -1,12 +1,10 @@
 if (location.pathname === '/') {
   var vm = new Vue({
-    el: document.body,
+    // el: document.body,
+    el: '#somecontent',
     data: {
       categories: [],
-      ads: [],
-      user: {
-        id: ''
-      }
+      ads: []
     }
   })
 
@@ -18,9 +16,5 @@ if (location.pathname === '/') {
 
   request('/ad/find', function (err, xhr, data) {
     vm.$data.ads = JSON.parse(data)
-  })
-
-  request('/session/check', function (err, xhr, data) {
-    vm.$data.user = JSON.parse(data)
   })
 }

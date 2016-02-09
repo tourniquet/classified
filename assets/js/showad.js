@@ -1,30 +1,19 @@
 // if (location.pathname === /^\d{8}$/) {
-if (location.pathname === 25787463) {
-  var adUri = location.pathname
-
-  console.log(adUri)
-
+if (location.pathname.match(/^\/\d{8}$/)) {
+  console.log('showad')
 
   var vm = new Vue({
-    el: document.body,
+    el: '#somecontent',
     data: {
       category: '',
-      ad: data,
-      user: {
-        id: ''
+      ad: {
+        title: '',
+
       }
     }
   })
 
-  request('/adUri', function (err, xhr, data) {
-    vm.$data.ad = JSON.parse(data)
+  request({ method:'GET', url:'/ad/find?url=' + location.pathname.match(/^\/(\d{8})$/)[1], json: true }, function (err, xhr, data) {
+    vm.$data.ad = data[0]
   })
-
-  // request('/ad/find', function (err, xhr, data) {
-  //   vm.$data.ads = JSON.parse(data)
-  // })
-  //
-  // request('/session/check', function (err, xhr, data) {
-  //   vm.$data.user = JSON.parse(data)
-  // })
 }

@@ -4,7 +4,7 @@ block title
   title Postează anunţ
 
 block content
-  form.form.form-horizontal(action="/ad/create", method="POST")
+  form.form.form-horizontal#somecontent(action="/ad/create", method="POST")
     .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="subcategory") Subcategorie
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
@@ -23,7 +23,9 @@ block content
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
         input.form-control.input-sm(type="text", name="description")
                 
-    input(type="hidden", name="_csrf", value="#{ _csrf }")
+                
+    //- input(type="hidden", name="_csrf", value="#{ _csrf }")
+    input#someother(type="hidden", name="_csrf", v-model="csrf")
     
     .form-group.text-center
       input.btn.btn-primary(type="submit", value="Postează")

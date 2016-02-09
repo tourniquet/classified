@@ -84,8 +84,6 @@ module.exports = {
       //   })
       // })
 
-      console.log(ad)
-      
       res.view('ad/showad', {
         ad,
         // category,
