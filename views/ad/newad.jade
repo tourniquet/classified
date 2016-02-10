@@ -6,11 +6,20 @@ block title
 block content
   form.form.form-horizontal#somecontent(action="/ad/create", method="POST")
     .form-group
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="category") titlu
+      .col-xs-12.col-sm-12.col-md-4.col-lg-4
+        select.form-control.input-sm(name="category", v-on:change="requestSubcategories", v-model="category")
+          option(value="") Select category
+          option(v-for="category in categories", v-bind:value="category.id") {{ category.title }}
+        
+    .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="subcategory") Subcategorie
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
         select.form-control.input-sm(name="subcategory")
-          each subcategory in subcategories
-            option(value="#{ subcategory.id }") #{ subcategory.title }
+          option(v-for="subcategory in subcategories", v-bind:value="subcategory.id")
+            {{ subcategory.title }}
+          //- each subcategory in subcategories
+          //-   option(value="#{ subcategory.id }") #{ subcategory.title }
           
     
     .form-group

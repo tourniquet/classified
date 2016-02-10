@@ -22,23 +22,19 @@ module.exports = {
   },
 
   newad (req, res) {
-    Category.find().exec(function (err, categories) {
-      res.view('ad/category', {
-        categories,
-        user: req.session.User
-      })
+    res.view('ad/newad', {
+      user: req.session.User
     })
-  },
 
-  newad2 (req, res) {
-    var category = req.param('category')
+    // Category.find().exec(function (err, categories) {
+    // })
 
-    Subcategory.find({ category: category }).exec(function (err, subcategories) {
-      res.view('ad/newad', {
-        subcategories,
-        user: req.session.User
-      })
-    })
+    // Subcategory.find({ category: category }).exec(function (err, subcategories) {
+    //   res.view('ad/newad', {
+    //     subcategories,
+    //     user: req.session.User
+    //   })
+    // })
   },
 
   create (req, res) {
