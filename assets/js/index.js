@@ -8,11 +8,11 @@ if (location.pathname === '/') {
     }
   })
 
-  request('/category/find', function (err, xhr, data) {
-    vm.$data.categories = JSON.parse(data)
+  io.socket.get('/category/find', function (data) {
+    vm.$data.categories = data
   })
 
-  request('/ad/find', function (err, xhr, data) {
-    vm.$data.ads = JSON.parse(data)
+  io.socket.get('/ad/find', function (data) {
+    vm.$data.ads = data
   })
 }

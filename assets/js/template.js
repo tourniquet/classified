@@ -7,6 +7,6 @@ var v = new Vue({
   }
 })
 
-request('/session/check', function (err, xhr, data) {
-  v.$data.user = JSON.parse(data)
+io.socket.get('/session/check', function (data) {
+  v.$data.user = data
 })

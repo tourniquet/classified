@@ -49,7 +49,6 @@ module.exports.routes = {
   // new ad
   '/newad': 'Ad.newad',
 
-  '/newad2': 'Ad.newad2',
 
   // user routes
   // user registration

@@ -11,17 +11,14 @@ block content
         select.form-control.input-sm(name="category", v-on:change="requestSubcategories", v-model="category")
           option(value="") Select category
           option(v-for="category in categories", v-bind:value="category.id") {{ category.title }}
-        
+
     .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="subcategory") Subcategorie
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
         select.form-control.input-sm(name="subcategory")
           option(v-for="subcategory in subcategories", v-bind:value="subcategory.id")
             {{ subcategory.title }}
-          //- each subcategory in subcategories
-          //-   option(value="#{ subcategory.id }") #{ subcategory.title }
-          
-    
+
     .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="title") titlu
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
@@ -31,10 +28,8 @@ block content
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="description") descriere
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
         input.form-control.input-sm(type="text", name="description")
-                
-                
-    //- input(type="hidden", name="_csrf", value="#{ _csrf }")
+
     input#someother(type="hidden", name="_csrf", v-model="csrf")
-    
+
     .form-group.text-center
       input.btn.btn-primary(type="submit", value="Postează")

@@ -4,6 +4,7 @@
  * @description :: Server-side logic for managing ads
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+
 module.exports = {
   index (req, res) {
     'use strict'
@@ -25,16 +26,6 @@ module.exports = {
     res.view('ad/newad', {
       user: req.session.User
     })
-
-    // Category.find().exec(function (err, categories) {
-    // })
-
-    // Subcategory.find({ category: category }).exec(function (err, subcategories) {
-    //   res.view('ad/newad', {
-    //     subcategories,
-    //     user: req.session.User
-    //   })
-    // })
   },
 
   create (req, res) {
@@ -68,21 +59,8 @@ module.exports = {
         return res.serverError(err)
       }
 
-      // Category.findOne(ad.subcategory.category).populate('subcategories').exec(function (err, category) {
-      //   if (err) {
-      //     return res.serverError(err)
-      //   }
-      //
-      //   res.view('ad/showad', {
-      //     ad,
-      //     category,
-      //     user: req.session.User
-      //   })
-      // })
-
       res.view('ad/showad', {
         ad,
-        // category,
         user: req.session.User
       })
     })

@@ -1,4 +1,3 @@
-// if (location.pathname === /^\d{8}$/) {
 if (location.pathname.match(/^\/\d{8}$/)) {
   console.log('showad')
 
@@ -13,7 +12,9 @@ if (location.pathname.match(/^\/\d{8}$/)) {
     }
   })
 
-  request({ method:'GET', url:'/ad/find?url=' + location.pathname.match(/^\/(\d{8})$/)[1], json: true }, function (err, xhr, data) {
+  io.socket.get('/ad/find', {
+    url: location.pathname.match(/^\/(\d{8})$/)[1]
+  }, function (data) {
     vm.$data.ad = data[0]
   })
 }
