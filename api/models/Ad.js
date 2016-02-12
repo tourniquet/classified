@@ -29,5 +29,11 @@ module.exports = {
       type: 'string',
       required: true
     }
+  },
+
+  afterCreate (values, next) {
+    Ad.publishCreate(values)
+
+    next()
   }
 }

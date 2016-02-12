@@ -15,4 +15,10 @@ if (location.pathname === '/') {
   io.socket.get('/ad/find', function (data) {
     vm.$data.ads = data
   })
+
+  io.socket.on('ad', function () {
+    io.socket.get('/ad/find', function (data) {
+      vm.$data.ads = data
+    })
+  })
 }
