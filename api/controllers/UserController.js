@@ -10,6 +10,16 @@ module.exports = {
     res.view('user/registration')
   },
 
+  create (req, res) {
+    User.create(req.body).exec(function (err, result) {
+      if (err) {
+        return res.serverError(err)
+      }
+
+      return res.redirect('/')
+    })
+  },
+
   profile (req, res) {
     User.findOne({ id: req.param('id') }).populate('ads').exec(function (err, user) {
       if (err) {
