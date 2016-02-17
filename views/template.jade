@@ -64,12 +64,12 @@ html
             //- if session.authenticated
             
             //- user profile
-            li: a(href="/user/favorites") Favorite
-            li: a(href="/user/profile/{{ user.id }}") Profil
+            li: a(href="/favorites") Favorite
+            li: a(href="/profile/{{ user.id }}") Profil
             li: a(href="/logout") Ieșire
           ul.nav.navbar-nav.navbar-right(v-else)
-            li: a(href="/user/registration") Înregistrare
-            li: a(href="/user/login") Intrare
+            li: a(href="/registration") Înregistrare
+            li: a(href="/login") Intrare
 
 
     .container
@@ -119,6 +119,7 @@ html
     script(src="/js/dependencies/vue.js")
     script(src="/js/index.js")
     script(src="/js/newad.js")
+    script(src="/js/registration.js")
     script(src="/js/showad.js")
     script(src="/js/template.js")
     // SCRIPTS END

@@ -13,12 +13,12 @@ block content
     .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="password") Password
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
-        input.form-control.input-sm(type="password", name="password", required)
+        input#password.form-control.input-sm(type="password", name="password", required)
     
     .form-group
-      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="confirmation") Password confirmation
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="password-confirmation") Password confirmation
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
-        input.form-control.input-sm(type="password", name="confirmation", required)
+        input#password-confirmation.form-control.input-sm(type="password", name="password-confirmation", required)
     
     .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="phone") Phone number
@@ -28,17 +28,8 @@ block content
     input(type="hidden", name="_csrf", value="#{ _csrf }")
     
     .form-group.text-center
-      input.btn.btn-primary(type="submit", value="Register")
+      input.btn.btn-primary(type="submit", value="Register", onclick="checkPassword()")
 
 
 block scripts
-  //- allow only numbers in 'price' and 'phone' area
-  script(type="text/javascript").
-    var isNumberKey = function (evt) {
-      var charCode = (evt.which) ? evt.which : event.keyCode
-
-      if (charCode > 31 && (charCode < 48 || charCode > 57))
-        return false
-
-      return true
-    }
+  script(src="/js/registration.js")

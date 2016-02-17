@@ -52,15 +52,15 @@ module.exports.routes = {
 
   // user routes
   // user registration
-  '/user/registration': {
+  '/registration': {
     view: 'user/registration'
   },
   // user login page
-  '/user/login': {
+  '/login': {
     view: 'user/login'
   },
   // user profile page
-  '/user/profile/:id': 'User.profile',
+  '/profile/:id': 'User.profile',
 
   // category routes
   '/categorie/:category': 'Category.subcategory',
