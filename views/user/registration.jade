@@ -4,11 +4,11 @@ block title
   title Înregistrare
 
 block content
-  form.form.form-horizontal(action="create", method="POST")
+  form.form.form-horizontal(action="/user/create", method="POST", onsubmit="checkEmail()")
     .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="email") Email
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
-        input.form-control.input-sm(type="email", name="email", required)
+        input#email.form-control.input-sm(type="email", name="email", onkeyup="checkEmail()", required)
 
     .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="password") Password
@@ -18,7 +18,7 @@ block content
     .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="password-confirmation") Password confirmation
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
-        input#password-confirmation.form-control.input-sm(type="password", name="password-confirmation", required)
+        input#password-confirmation.form-control.input-sm(type="password", name="password-confirmation", onkeyup="checkPassword()", required)
     
     .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="phone") Phone number
@@ -28,7 +28,7 @@ block content
     input(type="hidden", name="_csrf", value="#{ _csrf }")
     
     .form-group.text-center
-      input.btn.btn-primary(type="submit", value="Register", onclick="checkPassword()")
+      input.btn.btn-primary(type="submit", value="Register", onclick="checkEmail()")
 
 
 block scripts
