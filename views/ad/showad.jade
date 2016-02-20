@@ -1,24 +1,21 @@
 extends ../template.jade
 
 block title
-  title #{ ad.title }
+  title {{ ad.title }}
 
 block content
-  #somecontent
+  #content
     .row
       #category.col-xs-12.col-sm-12.col-md-12.col-md-12
         ol.breadcrumb
           li
             a(href='/') Acasă
-          //- li
-            //- a(href='/category/#{ ad.category }')
-              //- span#show-category #{ ad.category }
-          //- li
-          //-   a(href='/category/#{ category.title }')
-          //-     span#show-category #{ category.title }
-          //- li
-          //-   a(href='/#{ category.title }/#{ ad.subcategory.title }')
-          //-     span#show-sub-category #{ ad.subcategory.title }
+          li
+            a(href='/category/{{ category.title }}')
+              span#show-category {{ category.title }}
+          li
+            a(href='/{{ category.title }}/{{ ad.subcategory.title }}')
+              span#show-sub-category {{ ad.subcategory.title }}
           li.active
             | {{ ad.title }}
 
@@ -27,15 +24,15 @@ block content
         h1#ad-title {{ ad.title }}
 
     .row
-      .col-xs-12.col-sm-12.col-md-3.col-lg-3.text-muted #{ ad.date }
-      .col-xs-12.col-sm-12.col-md-3.col-lg-3.text-muted Vizualizări: #{ ad.views }
+      .col-xs-12.col-sm-12.col-md-3.col-lg-3.text-muted {{ moment(item) }}
+      .col-xs-12.col-sm-12.col-md-3.col-lg-3.text-muted Vizualizări: {{ ad.views }}
       #ok_shareWidget.col-xs-12.col-sm-12.col-md-3.col-lg-3.text-muted
 
     //- .row(style="margin-top: 25px;")
       if ad.imagesPath[0]
         .col-xs-12.col-sm-6.col-md-3.col-lg-2
-          a(href="uploads/#{ ad.imagesPath[0] }", data-lightbox="#{ ad.title }")
-            img.img-thumbnail(src="uploads/thumb_#{ ad.imagesPath[0] }", alt="#{ ad.title }")
+          a(href="uploads/#{ ad.imagesPath[0] }", data-lightbox="{{ ad.title }}")
+            img.img-thumbnail(src="uploads/thumb_#{ ad.imagesPath[0] }", alt="{{ ad.title }}")
       else
         .col-xs-12.col-sm-6.col-md-3.col-lg-2
           img.img-thumbnail(src="img/noimage.png", alt="No image")
@@ -51,12 +48,12 @@ block content
             img.img-thumbnail(src="uploads/thumb_#{ ad.imagesPath[2] }", alt="#{ ad.title }")
 
     .row
-      pre.col-xs-12.col-sm-12.col-md-12.col-lg-12 #{ ad.adDescription }
+      pre.col-xs-12.col-sm-12.col-md-12.col-lg-12 {{ ad.description }}
 
     .row
       #price.col-xs-12.col-sm-12.col-md-12.col-md-12
         span#price-label preţ:
-        |	#{ ad.price }
+        |	{{ ad.price }}
         span.converted
         span.converted
 
@@ -64,7 +61,7 @@ block content
     .row
       #phone.col-xs-12.col-sm-12.col-md-12.col-md-12
         span#phone-label contacte:
-        |	#{ ad.phone }, #{ ad.contactName }
+        |	{{ ad.phone }}, {{ ad.contactName }}
 
     .row
       #useful-info.col-xs-12.col-sm-12.col-md-12.col-md-12

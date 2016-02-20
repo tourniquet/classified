@@ -28,7 +28,18 @@ module.exports = {
     description: {
       type: 'string',
       required: true
+    },
+
+    // contactName ???
+    // phone ???
+
+    price: {
+      type: 'string'
     }
+
+    // imagesPath: Array,
+    // keywords: String,
+    // views: Number
   },
 
   afterCreate (values, next) {

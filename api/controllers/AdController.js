@@ -38,10 +38,13 @@ module.exports = {
       user = null;
     }
 
+    var price = req.param('price') + ' ' + req.param('currency')
+
     Ad.create({
       url: url,
       title: req.param('title'),
       description: req.param('description'),
+      price: price,
       user: user,
       subcategory: req.param('subcategory')
     }).exec(function (err) {
@@ -54,15 +57,6 @@ module.exports = {
   },
 
   showad (req, res) {
-    Ad.findOne({ url: req.param('id') }).populate('subcategory').exec(function (err, ad) {
-      if (err) {
-        return res.serverError(err)
-      }
-
-      res.view('ad/showad', {
-        ad,
-        user: req.session.User
-      })
-    })
+    res.view('ad/showad')
   }
 }

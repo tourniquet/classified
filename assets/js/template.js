@@ -1,3 +1,7 @@
+moment.locale('ro')
+
+// -------------------
+
 var v = new Vue({
   el: '#user-navbar',
   data: {

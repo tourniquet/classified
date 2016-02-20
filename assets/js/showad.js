@@ -1,13 +1,22 @@
 if (location.pathname.match(/^\/\d{8}$/)) {
-  console.log('showad')
-
   var vm = new Vue({
-    el: '#somecontent',
+    el: '#content',
     data: {
-      category: '',
-      ad: {
-        title: '',
+      category: {
+        title: ''
+      },
 
+      ad: {
+        subcategory: '',
+        title: '',
+        description: '',
+        price: ''
+      }
+    },
+
+    methods: {
+      moment: function (date) {
+        return moment(date).format('D MMMM YYYY')
       }
     }
   })
@@ -16,5 +25,13 @@ if (location.pathname.match(/^\/\d{8}$/)) {
     url: location.pathname.match(/^\/(\d{8})$/)[1]
   }, function (data) {
     vm.$data.ad = data[0]
+
+    // find category by id
+    var category = data[0].subcategory.category
+    io.socket.get('/category/find', {
+      id: category
+    }, function (data) {
+      vm.$data.category = data
+    })
   })
 }
