@@ -1,15 +1,3 @@
-// check if password and password confirmation are the same
-function checkPassword () {
-  var password = document.getElementById('password')
-  var passwordConfirmation = document.getElementById('password-confirmation')
-
-  if (password.value === passwordConfirmation.value) {
-    passwordConfirmation.setCustomValidity('')
-  } else if (password.value !== passwordConfirmation.value) {
-    passwordConfirmation.setCustomValidity('Password don\'t match')
-  }
-}
-
 // check if email already exist
 function checkEmail () {
   var userEmail = document.getElementById('email').value
@@ -24,6 +12,18 @@ function checkEmail () {
       checkPassword()
     }
   })
+}
+
+// check if password and password confirmation are the same
+function checkPassword () {
+  var password = document.getElementById('password')
+  var passwordConfirmation = document.getElementById('password-confirmation')
+
+  if (password.value === passwordConfirmation.value) {
+    passwordConfirmation.setCustomValidity('')
+  } else if (password.value !== passwordConfirmation.value) {
+    passwordConfirmation.setCustomValidity('Password don\'t match')
+  }
 }
 
 // allow only numbers in 'price' and 'phone' area

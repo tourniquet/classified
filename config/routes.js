@@ -21,7 +21,6 @@
  */
 
 module.exports.routes = {
-
   /***************************************************************************
   *                                                                          *
   * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
@@ -44,10 +43,10 @@ module.exports.routes = {
   // ad routes
   // index page
   '/': 'Ad.index',
-  // show ad page`
-  'r|^/(\\d{8})$|id': 'Ad.showad',
   // new ad
   '/newad': 'Ad.newad',
+  // show ad page`
+  'r|^/(\\d{8})$|id': 'Ad.showad',
 
   // user routes
   // user registration
@@ -62,7 +61,11 @@ module.exports.routes = {
   '/profile/:id': 'User.profile',
 
   // category routes
-  '/categorie/:category': 'Category.subcategory',
+  // '/category/:category': 'Category.subcategory',
+  'r|^/category/(?!find)(\\w+\\D+)$|category': 'Category.category',
+
+  // subcategory routes
+  // '/:category/:subcategory': 'Subcategory.subcategory',
 
   // session routes
   // create user session

@@ -11,14 +11,16 @@ module.exports = {
 
     DbService
       .multiple(Category.find(), Ad.find())
-      .then(function (a) {
+      .then(function (data) {
         res.view('ad/index', {
-          categories: a[0],
-          ads: a[1],
+          categories: data[0],
+          ads: data[1],
           user: req.session.User
         })
       }, function (err) {
-        res.serverError(err)
+        if (err) {
+          return res.serverError(err)
+        }
       })
   },
 

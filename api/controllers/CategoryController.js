@@ -19,7 +19,7 @@ module.exports = {
       })
   },
 
-  subcategory (req, res) {
+  category (req, res) {
     DbService
       .multiple(Category.findOne({ title: req.param('category') }).populate('subcategories'), Ad.find())
       .then(function (data) {

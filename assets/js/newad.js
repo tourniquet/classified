@@ -1,7 +1,6 @@
 if (location.pathname === '/newad') {
   var vm = new Vue({
-    // el: document.body,
-    el: '#somecontent',
+    el: '#content',
     data: {
       csrf: '',
       categories: [],

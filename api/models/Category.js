@@ -9,7 +9,8 @@ module.exports = {
   attributes: {
     title: {
       type: 'string',
-      required: true
+      required: true,
+      unique: true
     },
 
     subcategories: {
