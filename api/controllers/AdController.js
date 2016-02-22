@@ -48,7 +48,8 @@ module.exports = {
       description: req.param('description'),
       price: price,
       user: user,
-      subcategory: req.param('subcategory')
+      subcategory: req.param('subcategory'),
+      categoryId: req.param('category')
     }).exec(function (err) {
       if (err) {
         return res.serverError(err)

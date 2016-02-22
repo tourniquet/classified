@@ -62,7 +62,8 @@ module.exports.routes = {
 
   // category routes
   // '/category/:category': 'Category.subcategory',
-  'r|^/category/(?!find)(\\w+\\D+)$|category': 'Category.category',
+  // 'r|^/category/(?!find)(?!create)(\\w+\\D+)$|category': 'Category.category',
+  'r|^/category/(?!find|create)(\\w+\\D+)$|category': 'Category.category',
 
   // subcategory routes
   // '/:category/:subcategory': 'Subcategory.subcategory',

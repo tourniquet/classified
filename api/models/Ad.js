@@ -35,6 +35,10 @@ module.exports = {
 
     price: {
       type: 'string'
+    },
+
+    categoryId: {
+      type: 'string'
     }
 
     // imagesPath: Array,
