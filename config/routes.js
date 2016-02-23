@@ -62,11 +62,16 @@ module.exports.routes = {
 
   // category routes
   // '/category/:category': 'Category.subcategory',
-  // 'r|^/category/(?!find)(?!create)(\\w+\\D+)$|category': 'Category.category',
-  'r|^/category/(?!find|create)(\\w+\\D+)$|category': 'Category.category',
+  'r|^/category/(?!find|data)(\\w+)$|category': { view: 'ad/index' },
+  '/category/data': 'Category.category',
 
   // subcategory routes
   // '/:category/:subcategory': 'Subcategory.subcategory',
+  'r|^/(?!ad|category|subcategory)(\\w+\\D+)/(?!find|create)(\\w+\\D+)$|category, subcategory': {
+    controller: 'Subcategory',
+    action: 'subcategory',
+    skipAssets: true
+  },
 
   // session routes
   // create user session
