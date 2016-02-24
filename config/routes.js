@@ -54,24 +54,21 @@ module.exports.routes = {
     view: 'user/registration'
   },
   // user login page
-  '/login': {
-    view: 'user/login'
-  },
+  '/login': { view: 'user/login' },
   // user profile page
   '/profile/:id': 'User.profile',
 
   // category routes
   // '/category/:category': 'Category.subcategory',
-  'r|^/category/(?!find|data)(\\w+)$|category': { view: 'ad/index' },
+  'r|^/category/(?!find|data)(\\w+)$|category': { view: 'ad/category' },
   '/category/data': 'Category.category',
 
   // subcategory routes
-  // '/:category/:subcategory': 'Subcategory.subcategory',
   'r|^/(?!ad|category|subcategory)(\\w+\\D+)/(?!find|create)(\\w+\\D+)$|category, subcategory': {
-    controller: 'Subcategory',
-    action: 'subcategory',
-    skipAssets: true
+    skipAssets: true,
+    view: 'ad/subcategory'
   },
+  '/subcategory/data': 'Subcategory.subcategory',
 
   // session routes
   // create user session
