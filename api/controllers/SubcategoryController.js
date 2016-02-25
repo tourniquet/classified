@@ -12,16 +12,14 @@ module.exports = {
         return res.serverError(err)
       }
 
-      var subcategoryTitle = data.title
+      var subcategoryId = data.id
 
       DbService
-        .multiple(Category.findOne({ title: req.param('category') }).populate('subcategories'), Subcategory.find({ title: subcategoryTitle }).populate('ads'))
+        .multiple(Category.findOne({ title: req.param('category') }).populate('subcategories'), Subcategory.findOne({ id: subcategoryId }).populate('ads'))
         .then(function (data) {
-          var ads = data[1]
-          console.log(ads)
           res.json({
-            categories: data[0],
-            ads: data[1]
+            category: data[0],
+            subcategory: data[1]
           })
         })
     })
