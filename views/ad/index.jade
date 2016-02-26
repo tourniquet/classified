@@ -11,28 +11,17 @@ block content
           span {{ category.title }}
       li: p
         li: a(href="/newad"): span.btn.btn-danger.btn-sm Postează anunţ
-  
-    //- ul#menu-list.hidden-xs
-    //-   //- li: a(href="/category/other") Altele
-    //-   each category in categories
-    //-     li: a(href="/category/#{ category.title }") #{ category.title }
-    //-   li: p
-    //-   li: a(href="/newad"): span.btn.btn-danger.btn-sm Postează anunţ
-
 
     ul#ads-listing
       li(v-for="ad in ads")
         a(:href="ad.url")
           span.ad-name {{ ad.title }}
-
         
         span.ad-price.hidden-xs(v-if="ad.price") {{ ad.price }}
         span.ad-price.hidden-xs(v-else) &nbsp;
 
         span.ad-date.hidden-xs {{ ad.date }}
 
-
     include ../rightadblock
-
 
 block scripts

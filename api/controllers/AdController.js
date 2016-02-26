@@ -57,9 +57,5 @@ module.exports = {
 
       res.redirect('/')
     })
-  },
-
-  showad (req, res) {
-    res.view('ad/showad')
   }
 }

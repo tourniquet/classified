@@ -58,11 +58,7 @@ html
 
 
         #user-navbar.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right(v-if="user.id")
-            //- li: a(href="#") Link
-            //- user login / logout
-            //- if session.authenticated
-            
+          ul.nav.navbar-nav.navbar-right(v-if="user.id")            
             //- user profile
             li: a(href="/favorites") Favorite
             li: a(href="/profile/{{ user.id }}") Profil
@@ -81,9 +77,7 @@ html
           script.
             (adsbygoogle = window.adsbygoogle || []).push({});
 
-
       block content
-
 
       .row
         nav
@@ -132,6 +126,5 @@ html
           $('.navbar-collapse').not(this).collapse('hide');
         });
       });
-
 
     block scripts

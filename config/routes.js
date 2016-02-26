@@ -46,13 +46,11 @@ module.exports.routes = {
   // new ad
   '/newad': 'Ad.newad',
   // show ad page`
-  'r|^/(\\d{8})$|id': 'Ad.showad',
+  'r|^/(\\d{8})$|id': { view: 'ad/showad' },
 
   // user routes
   // user registration
-  '/registration': {
-    view: 'user/registration'
-  },
+  '/registration': { view: 'user/registration' },
   // user login page
   '/login': { view: 'user/login' },
   // user profile page

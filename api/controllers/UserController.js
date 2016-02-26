@@ -6,10 +6,6 @@
  */
 
 module.exports = {
-	registration (req, res) {
-    res.view('user/registration')
-  },
-
   create (req, res) {
     User.create(req.body).exec(function (err, result) {
       if (err) {
