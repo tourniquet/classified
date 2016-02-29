@@ -54,7 +54,9 @@ module.exports.routes = {
   // user login page
   '/login': { view: 'user/login' },
   // user profile page
-  '/profile/:id': 'User.profile',
+  '/profile/:id': { view: 'user/profile' },
+  // user profile data
+  '/user/data': 'User.data',
 
   // category routes
   // '/category/:category': 'Category.subcategory',
@@ -62,7 +64,7 @@ module.exports.routes = {
   '/category/data': 'Category.category',
 
   // subcategory routes
-  'r|^/(?!ad|category|subcategory)(\\w+\\D+)/(?!find|create)(\\w+\\D+)$|category, subcategory': {
+  'r|^/(?!ad|category|subcategory|session|profile)(\\w+\\D+)/(?!find|create)(\\w+\\D+)$|category, subcategory': {
     skipAssets: true,
     view: 'ad/subcategory'
   },

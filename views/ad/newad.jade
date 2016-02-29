@@ -20,14 +20,39 @@ block content
 
     .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="title") titlu
-      .col-xs-12.col-sm-12.col-md-4.col-lg-4
+      .col-xs-12.col-sm-12.col-md-8.col-lg-8
         input.form-control.input-sm(type="text", name="title")
 
     .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="description") descriere
-      .col-xs-12.col-sm-12.col-md-4.col-lg-4
-        input.form-control.input-sm(type="text", name="description")
+      .col-xs-12.col-sm-12.col-md-8.col-lg-8
+        textarea.form-control(name="description", placeholder="mesajul anunţului", rows="5")
         
+    .form-group
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="form-first-image") imagine (1)
+      .col-xs-12.col-sm-12.col-md-4.col-lg-4
+        input#form-first-image(name="form-first-image", accept="image/jpeg,image/png,image/gif", type="file")
+
+    .form-group
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="form-second-image") imagine (2)
+      .col-xs-12.col-sm-12.col-md-4.col-lg-4
+        input#form-second-image(name="form-second-image", accept="image/jpeg,image/png,image/gif", type="file")
+
+    .form-group
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="form-third-image") imagine (3)
+      .col-xs-12.col-sm-12.col-md-4.col-lg-4
+        input#form-third-image(name="form-third-image", accept="image/jpeg,image/png,image/gif", type="file")
+        
+    .form-group
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="form-ad-contactname") nume de contact
+      .col-xs-12.col-sm-12.col-md-4.col-lg-4
+        input#form-ad-contactname.form-control.input-sm(name="form-ad-contactname", placeholder="de ex. Ion")
+
+    .form-group
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="form-ad-phone") telefon de contact
+      .col-xs-12.col-sm-12.col-md-4.col-lg-4
+        input#form-ad-phone.form-control.input-sm(name="form-ad-phone", placeholder="telefon", type="tel", onkeypress="return isNumberKey(event)")
+
     .form-group.has-feedback
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="price") preţ
       .col-xs-6.col-sm-6.col-md-2.col-lg-2

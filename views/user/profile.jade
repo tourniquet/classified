@@ -2,10 +2,11 @@ extends ../template.jade
 
 block title
   title Înregistrare
-  
-  
+
 block content
-  h1 #{ user.email }
-  
-  each ad in user.ads
-    h3 #{ ad.title }
+  ul#content
+    li(v-for="ad in ads") 
+      {{ ad.title }}
+      span.glyphicon.glyphicon-pencil(aria-hidden="true")
+      span.glyphicon.glyphicon-remove(aria-hidden="true")
+      span.glyphicon.glyphicon-repeat(aria-hidden="true")

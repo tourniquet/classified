@@ -1,4 +1,4 @@
-if (location.pathname.match(/^\/(?!ad|category|subcategory)(\w+)\/(?!find|create)(\w+)$/)) {
+if (location.pathname.match(/^\/(?!ad|category|subcategory|profile)(\w+)\/(?!find|create)(\w+)$/)) {
   var vm = new Vue({
     el: '#content',
     data: {

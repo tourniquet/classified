@@ -16,15 +16,21 @@ module.exports = {
     })
   },
 
-  profile (req, res) {
+  data (req, res) {
     User.findOne({ id: req.param('id') }).populate('ads').exec(function (err, user) {
       if (err) {
         return res.serverError(err)
       }
 
-      if (!user) res.view(404)
+      if (!user) {
+        res.view(404)
+      }
+      //
+      // res.view('user/profile', {
+      //   user: user
+      // })
 
-      res.view('user/profile', {
+      res.json({
         user: user
       })
     })
