@@ -10,7 +10,7 @@ module.exports = {
     'use strict'
 
     DbService
-      .multiple(Category.find(), Ad.find())
+      .multiple(Category.find(), Ad.find({ sort: 'url DESC' }))
       .then(function (data) {
         res.view('ad/index', {
           categories: data[0],
@@ -56,6 +56,26 @@ module.exports = {
       }
 
       res.redirect('/')
+    })
+  },
+
+  update (req, res) {
+    Ad.update({ where: { id: req.param('id') } }, { updatedAt: new Date() }).exec(function (err, updated) {
+      if (err) {
+        return res.serverError(err)
+      }
+
+      res.json(updated[0].name)
+    })
+  },
+
+  remove (req, res) {
+    Ad.destroy({ id: req.param('id') }).exec(function (err) {
+      if (err) {
+        return res.serverError(err)
+      }
+
+      res.json('ad was removed')
     })
   }
 }

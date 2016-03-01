@@ -3,6 +3,23 @@ if (location.pathname.match(/^\/profile\/\w+$/)) {
     el: '#content',
     data: {
       ads: []
+    },
+
+    methods: {
+      removeAd (index) {
+        // console.log(index)
+        // var url = '/remove/' + this.ads[index].id
+        // console.log(this.ads[index].)
+        // this.ads.splice(index, 1)
+
+        io.socket.delete(url, function (data) {
+          data
+        })
+      },
+
+      updateAd () {
+
+      }
     }
   })
 
