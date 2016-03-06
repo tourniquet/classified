@@ -4,10 +4,14 @@ block title
   title Înregistrare
 
 block content
-  ul#content
-    li(v-for="ad in ads") 
-      {{ ad.title }}
-      span.glyphicon.glyphicon-remove(aria-hidden="true")
-      a(href="/update/{{ ad.id }}")
-        span.glyphicon.glyphicon-pencil(aria-hidden="true")
-      span.glyphicon.glyphicon-repeat(aria-hidden="true")
+  ul#content.list-group
+    li.list-group-item(v-for="ad in ads")
+      | {{ ad.title }}
+      button.btn.btn-default.btn-flat(type="button")
+        i.ion-edit
+      button.btn.btn-default.btn-flat(v-on:click="updateAd(ad)")
+        i.ion-android-refresh
+      button.btn.btn-default.btn-flat(v-on:click="removeAd(ad)")
+        i.ion-android-close
+      
+  //- input(type="hidden", name="_csrf", v-model="csrf")

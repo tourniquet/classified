@@ -23,9 +23,9 @@ if (location.pathname === '/newad') {
     }
   })
 
-  io.socket.get('/csrfToken', function (data) {
-    vm.$data.csrf = data._csrf
-  })
+  // io.socket.get('/csrfToken', function (data) {
+  //   vm.$data.csrf = data._csrf
+  // })
 
   io.socket.get('/category/find', function (data) {
     vm.$data.categories = data

@@ -6,22 +6,35 @@ if (location.pathname.match(/^\/profile\/\w+$/)) {
     },
 
     methods: {
-      removeAd (index) {
-        // console.log(index)
-        // var url = '/remove/' + this.ads[index].id
-        // console.log(this.ads[index].)
-        // this.ads.splice(index, 1)
+      updateAd (ad) {
+        var self = this
+        var url = '/ad/' + ad.id
 
-        io.socket.delete(url, function (data) {
-          data
-        })
+        if (confirm('some message')) {
+          io.socket.put(url, {
+            updatedAt: new Date()
+          }, function (data) {
+            self.ads.$remove(ad)
+            self.ads.push(data)
+          })
+        }
       },
 
-      updateAd () {
+      removeAd (ad) {
+        var url = '/ad/' + ad.id
 
+        if (confirm('Some message')) {
+          this.ads.$remove(ad)
+
+          io.socket.delete(url, function (data) {
+            data
+          })
+        }
       }
     }
   })
+
+
 
   var id = location.pathname.split('/')[2]
   io.socket.get('/user/data', {

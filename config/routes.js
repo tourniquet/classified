@@ -47,10 +47,6 @@ module.exports.routes = {
   '/newad': 'Ad.newad',
   // show ad page`
   'r|^/(\\d{8})$|id': { view: 'ad/showad' },
-  // update ad
-  '/update/:id': 'Ad.update',
-  // remove ad
-  '/remove/:id': 'Ad.remove',
 
   // user routes
   // user registration
