@@ -59,7 +59,7 @@ html
 
 
         #user-navbar.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right(v-if="user.id")            
+          ul.nav.navbar-nav.navbar-right(v-if="user.id")
             //- user profile
             li: a(href="/favorites") Favorite
             li: a(href="/profile/{{ user.id }}") Profil
@@ -104,14 +104,14 @@ html
             i.fa.fa-skype.fa-lg
 
         .col-xs-12.col-sm-12.col-md-12.text-muted.text-center.project-version.
-          2014 - 2016 | ver 0.16.5
+          2014 - 2016 | ver 16.3.7
 
-    // SCRIPTS
     script(src="/js/dependencies/sails.io.js")
     script(src="/js/dependencies/libs.min.js")
     script(src="/js/dependencies/moment.min.js")
     script(src="/js/dependencies/request.js")
     script(src="/js/dependencies/vue.js")
+    script(src="/js/template.js")
     script(src="/js/category.js")
     script(src="/js/index.js")
     script(src="/js/newad.js")
@@ -119,8 +119,6 @@ html
     script(src="/js/registration.js")
     script(src="/js/showad.js")
     script(src="/js/subcategory.js")
-    script(src="/js/template.js")
-    // SCRIPTS END
 
     //script.
       $(function(){
@@ -128,5 +126,5 @@ html
           $('.navbar-collapse').not(this).collapse('hide')
         })
       })
-          
+
     block scripts

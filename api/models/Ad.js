@@ -39,6 +39,11 @@ module.exports = {
 
     categoryId: {
       type: 'string'
+    },
+
+    views: {
+      type: 'integer',
+      defaultsTo: 0
     }
 
     // imagesPath: Array,

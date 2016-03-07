@@ -7,11 +7,11 @@ block content
   ul#content.list-group
     li.list-group-item(v-for="ad in ads")
       | {{ ad.title }}
-      button.btn.btn-default.btn-flat(type="button")
+      button.btn.btn-default.btn-flat(v-if="user.id === ownerId", type="button")
         i.ion-edit
-      button.btn.btn-default.btn-flat(v-on:click="updateAd(ad)")
+      button.btn.btn-default.btn-flat(v-if="user.id === ownerId", @click="updateAd(ad)")
         i.ion-android-refresh
-      button.btn.btn-default.btn-flat(v-on:click="removeAd(ad)")
+      button.btn.btn-default.btn-flat(v-if="user.id === ownerId", @click="removeAd(ad)")
         i.ion-android-close
-      
-  //- input(type="hidden", name="_csrf", v-model="csrf")
+
+  input(type="hidden", name="_csrf", v-model="csrf")
