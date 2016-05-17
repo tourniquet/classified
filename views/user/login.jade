@@ -4,7 +4,7 @@ block title
   title Intră
 
 block content
-  form.form.form-horizontal(action="/session/create", method="POST")
+  form#content.form.form-horizontal(action="/session/create", method="POST")
     .form-group
       label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="email") Email
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
@@ -15,7 +15,7 @@ block content
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
         input.form-control.input-sm(type="password", name="password", required)
                 
-    input(type="hidden", name="_csrf", value="#{ _csrf }")
+    input(type="hidden", name="_csrf", v-model="csrf")
     
     .form-group.text-center
       input.btn.btn-primary(type="submit", value="Sign in")

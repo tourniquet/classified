@@ -1,3 +1,5 @@
+/* globals User */
+
 /*
  * UserController
  *
@@ -25,10 +27,6 @@ module.exports = {
       if (!user) {
         res.view(404)
       }
-      //
-      // res.view('user/profile', {
-      //   user: user
-      // })
 
       res.json({
         user: user

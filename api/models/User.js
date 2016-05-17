@@ -31,7 +31,7 @@ module.exports = {
       via: 'user'
     },
 
-    toJSON: function () {
+    toJSON () {
       var obj = this.toObject()
       delete obj.encryptedPassword
       delete obj._csrf
@@ -39,7 +39,7 @@ module.exports = {
     }
   },
 
-  beforeCreate: function (values, next) {
+  beforeCreate (values, next) {
     bcrypt.hash(values.password, 10, function (err, encryptedPassword) {
       if (err) console.log(err)
 

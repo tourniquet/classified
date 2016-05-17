@@ -1,0 +1,24 @@
+extends template.jade
+
+block title
+  title Upload files
+  
+block content
+  form.form.form-horizontal#content(action="/upload", method="POST", enctype="multipart/form-data")
+    .form-group
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="form-first-image") imagine (1)
+      .col-xs-12.col-sm-12.col-md-4.col-lg-4
+        input#form-first-image(name="form-first-image", accept="image/jpeg,image/png,image/gif", type="file")
+
+    .form-group
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="form-second-image") imagine (2)
+      .col-xs-12.col-sm-12.col-md-4.col-lg-4
+        input#form-second-image(name="form-second-image", accept="image/jpeg,image/png,image/gif", type="file")
+
+    .form-group
+      label.col-xs-12.col-sm-12.col-md-2.col-lg-2.control-label(for="form-third-image") imagine (3)
+      .col-xs-12.col-sm-12.col-md-4.col-lg-4
+        input#form-third-image(name="form-third-image", accept="image/jpeg,image/png,image/gif", type="file")
+
+    .form-group.text-center
+      input.btn.btn-primary(type="submit", value="Postează")

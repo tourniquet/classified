@@ -19,6 +19,6 @@ module.exports = {
     ads: {
       collection: 'ad',
       via: 'subcategory'
-    },
+    }
   }
 }

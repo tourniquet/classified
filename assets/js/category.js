@@ -1,3 +1,5 @@
+/* globals location, Vue, io */
+
 if (location.pathname.match(/^\/category\/\w+$/)) {
   var vm = new Vue({
     el: '#content',

@@ -1,7 +1,10 @@
+/* globals location, Vue, io, confirm */
+
 if (location.pathname.match(/^\/profile\/\w+$/)) {
   var vm = new Vue({
     el: '#content',
     data: {
+      csrf: '',
       ads: [],
       user: {
         id: ''
@@ -16,6 +19,7 @@ if (location.pathname.match(/^\/profile\/\w+$/)) {
 
         if (confirm('some message')) {
           io.socket.put(url, {
+            _csrf: this.csrf,
             updatedAt: new Date()
           }, function (data) {
             self.ads.$remove(ad)
@@ -30,12 +34,18 @@ if (location.pathname.match(/^\/profile\/\w+$/)) {
         if (confirm('Some message')) {
           this.ads.$remove(ad)
 
-          io.socket.delete(url, function (data) {
+          io.socket.delete(url, {
+            _csrf: this.csrf
+          }, function (data) {
             data
           })
         }
       }
     }
+  })
+
+  io.socket.get('/csrfToken', function (data) {
+    vm.$data.csrf = data._csrf
   })
 
   io.socket.get('/session/check', function (data) {

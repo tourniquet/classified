@@ -40,6 +40,8 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+  '/newfile': { view: 'upload' },
+  '/upload': 'Ad.upload',
   // ad routes
   // index page
   '/': 'Ad.index',

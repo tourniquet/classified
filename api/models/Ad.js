@@ -44,8 +44,11 @@ module.exports = {
     views: {
       type: 'integer',
       defaultsTo: 0
-    }
+    },
 
+    images: {
+      type: 'array'
+    }
     // imagesPath: Array,
     // keywords: String,
     // views: Number

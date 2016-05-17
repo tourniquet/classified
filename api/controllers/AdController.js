@@ -1,3 +1,5 @@
+/* globals DbService, Category, Ad, sails */
+
 /*
  * AdController
  *
@@ -32,13 +34,28 @@ module.exports = {
 
   create (req, res) {
     var url = new Date().getTime().toString().slice(5)
-    var user;
+    var user
 
     if (req.session.authenticated) {
       user = req.session.User.id
     } else {
-      user = null;
+      user = null
     }
+
+    var newfile = req.file('firstimage')
+    console.log(newfile)
+
+    newfile.upload({
+      dirname: require('path').resolve(sails.config.appPath, '/assets/uploads')
+    }, function (err, files) {
+      if (err) {
+        return res.serverError(err)
+      }
+
+      res.json({ status: 200,
+        file: files
+      })
+    })
 
     var price = req.param('price') + ' ' + req.param('currency')
 
@@ -56,6 +73,20 @@ module.exports = {
       }
 
       res.redirect('/')
+    })
+  },
+
+  upload (req, res) {
+    var firstImage = req.file('form-first-image')
+    var secondImage = req.file('form-second-image')
+    var thirdImage = req.file('form-third-image')
+
+    console.log(firstImage)
+    console.log(secondImage)
+    console.log(thirdImage)
+
+    res.json({
+      firstImage: 'firstImage'
     })
   }
 }

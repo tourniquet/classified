@@ -1,3 +1,5 @@
+/* globals moment, Vue, io */
+
 moment.locale('ro')
 
 // -------------------

@@ -25,7 +25,7 @@ block content
       .col-xs-12.col-sm-12.col-md-4.col-lg-4
         input.form-control.input-sm(type="tel", name="phone", onkeypress="return isNumberKey(event)")
         
-    input(type="hidden", name="_csrf", value="#{ _csrf }")
+    input(type="hidden", name="_csrf", v-model="csrf")
     
     .form-group.text-center
       input.btn.btn-primary(type="submit", value="Register", onclick="checkEmail()")
